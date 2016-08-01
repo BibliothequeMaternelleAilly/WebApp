@@ -15,7 +15,6 @@
                 border: #fee2a5 solid 1px;
                 margin-top: 5%;
                 text-align: center;
-                align-items: center;
                 font-family: clearLine;
                 font-size: 4em;
             }
