@@ -1,0 +1,65 @@
+
+@font-face {
+    font-family: littleBird;
+    src: url("../fonts/LittleBird.ttf");
+}
+@font-face {
+    font-family: clearLine;
+    src: url("../fonts/ClearLine.ttf");
+}
+@font-face {
+    font-family: maritime;
+    src: url("../fonts/MaritimeTropicalNeue.ttf");
+}
+
+body {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font: 18pt maritime;
+    color: #fee2a5;
+}
+
+.title {
+    font-family: littleBird;
+    font-size: 50pt;
+}
+
+.navbar-default .navbar-nav>li>a {
+    font-family: clearLine;
+    font-size: 27pt;
+    color: #fee2a5;
+}
+
+.navbar-default {
+    background-color: #3c1d10;
+    border-color: #fee2a5;
+}
+
+.navbar-default .navbar-brand {
+    color: #fee2a5;
+    font-family: littleBird;
+    font-size: 160%;
+}
+
+.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:hover {
+    color: #ff4e00;
+}
+
+.nav>li:hover {
+    background-color: #ff4e00;
+}
+
+.nav>li:active {
+    background-color: #cc3d00;
+}
+
+.navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>li>a:hover {
+    color: #fee2a5;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #cc3d00;
+    background-color: #fee2a5;
+}
