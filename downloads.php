@@ -97,7 +97,7 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     Téléchargez ici le logiciel de gestion de la bibliothèque
                     <div style="text-align: center; margin-top: 10px">
-                        <a class="btn btn-success btn-lg" href="#">Bibliothèque.jar</a>
+                        <a class="btn btn-success btn-lg" href="Bibliotheque.jar">Bibliothèque.jar</a>
                         <a class="btn btn-default btn-lg" href="#">Instructions d'utilisation</a>
                     </div>
                 </div>
