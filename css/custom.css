@@ -93,3 +93,11 @@ h2 {
     color: #cc3d00;
     background-color: #fee2a5;
 }
+
+.popover {
+    background-color: rgba(10,10,10,.5);
+}
+
+.popover > .arrow, .popover > .arrow::after {
+    border-style: none;
+}
