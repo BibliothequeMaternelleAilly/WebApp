@@ -58,42 +58,20 @@
             .btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus {
                 outline: none;
             }
-            
-            .btn-default {
-                background-color: #fdd4c6;
-                color: #793b20;
-                border: #8d4525 solid 1px;
-            }
-            
-            .btn-default:hover {
-                background-color: #fbb49d;
-                color: #3c1d10;
-                border: #ffb760 solid 1px;
-                box-shadow: 0 0 2px 2px #ffb760;
-            }
-            
-            .btn-default.focus,.btn-default:focus {
-                background-color: #fdd4c6;
-                color: #3c1d10;
-                border-color: #ffb760;
-            }
-            
-            .btn-default.active.focus,.btn-default.active:focus,.btn-default.active:hover,.btn-default:active.focus,.btn-default:active:focus,.btn-default:active:hover,.open>.dropdown-toggle.btn-default.focus,.open>.dropdown-toggle.btn-default:focus,.open>.dropdown-toggle.btn-default:hover {
-                background-color: #fa8f6b;
-                color: #3c1d10;
-                border: #ffb760 solid 1px;
-                box-shadow: 0 0 2px 2px #ffb760 inset;
-            }
-            
+
             .nav-tabs > li > a {
                 margin: 0;
                 color: #fdd4c6;
             }
             
+            .nav-tabs>li:hover {
+                background-color: #ff3700;
+            }
+            
             .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
                 background-color: #fdd4c6;
-                color: #ff4e00;
-                border: 1px solid #ff4e00;
+                color: #ff3700;
+                border: 1px solid #ff3700;
             }
             
             .form-control {
