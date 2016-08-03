@@ -29,6 +29,27 @@
                 padding-right: 10pt;
             }
             
+            #lien_aide {
+                display: block;
+                text-decoration: none;
+                text-align: center;
+                color: #fdd4c6;
+                margin-bottom: 20px;
+                padding-top: 15px;
+                padding-bottom: 10px;
+            }
+            
+            #lien_aide:hover {
+                background-color: rgba(253,212,198,.7);
+                color: #ff4e00;
+            }
+            
+            #lien_aide:active, #lien_aide:focus {
+                color: #ff4e00;
+                text-decoration: underline;
+                background-color: rgba(253,212,198,.5);
+            }
+            
             .btn {
                 font-size: 20pt;
                 padding-top: 15px;
@@ -98,6 +119,7 @@
                 <h1>
                     Bases de Données
                 </h1>
+                <a href="#" id="lien_aide">Instructions</a>
                 <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" href="#importer">Importer des élèves</a></li>
                     <li><a data-toggle="tab" href="#eleves">Liste des élèves</a></li>
@@ -123,11 +145,43 @@
                     </div>
                     <div id="eleves" class="tab-pane fade">
                         <h2>Élèves</h2>
-                        test2
+                        <form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </form>
+                        <button class="btn btn-success btn-block" name="nouveau">Ajouter un élève</button>
                     </div>
                     <div id="livres" class="tab-pane fade">
                         <h2>Livres</h2>
-                        test3
+                        <form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Auteur</th>
+                                        <th>Thème</th>
+                                        <th>ISBN</th>
+                                        <th>Mots-clés</th>
+                                        <th>Emprunté</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </form>
+                        <button class="btn btn-success btn-block" name="nouveau">Ajouter un livre</button>
                     </div>
                 </div>
             </div>
