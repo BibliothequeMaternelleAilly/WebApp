@@ -5,7 +5,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="<?php if($i==1) active; ?>"><a href="downloads.php">Téléchargements</a></li>
-            <li class="<?php if($i==2) active; ?>"><a href="#">Bases de données</a></li>
+            <li class="<?php if($i==2) active; ?>"><a href="database.php">Bases de données</a></li>
             <li class="<?php if($i==3) active; ?>"><a href="#">Documentation</a></li>
         </ul>
     </div>

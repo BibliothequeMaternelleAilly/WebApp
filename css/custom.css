@@ -21,6 +21,24 @@ body {
     color: #fee2a5;
 }
 
+a:focus {
+    outline: none;
+}
+
+label {
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.form-inline > label {
+    margin-bottom: 0;
+}
+
+input[type=file] {
+    padding-bottom: 39px;
+    font-size: 14pt;
+}
+
 .title {
     font-family: littleBird;
     font-size: 50pt;
