@@ -5,6 +5,7 @@
         <group>
             <file>file:/var/www/html/WebApp/database.php</file>
             <file>file:/var/www/html/WebApp/navbar.php</file>
+            <file>file:/var/www/html/WebApp/uploadDB.php</file>
             <file>file:/var/www/html/WebApp/index.php</file>
             <file>file:/var/www/html/WebApp/css/custom.css</file>
             <file>file:/var/www/html/WebApp/downloads.php</file>

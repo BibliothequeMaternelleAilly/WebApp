@@ -10,27 +10,20 @@
     require_once 'Classes/PHPExcel/IOFactory.php';
 
     $xlsFile = PHPExcel_IOFactory::load("uploads/test.xlsx");
-
-    $activeSheet = $xlsFile->getSheet(0);
-
-    $c_nom = $c_prenom = $activeSheet->getHighestDataColumn()-1;
-    $firstRow = $activeSheet->getHighestDataRow();
-    $cellValue = "";
-
-    while (!strcasecmp($cellValue, "nom") && $cellValue!=NULL) {
-        $c_nom++;
-        $cellValue = $activeSheet->getCellByColumnAndRow($c_nom, $firstRow)->getValue();
+    $activeSheet = $xlsFile->getSheet(0);   
+    
+    $lastCol = $activeSheet->getHighestDataColumn();
+    $col = 'A';
+    
+    for($i='A'; $i<=$lastCol; $i++) {
+        $cellValue = $activeSheet->getCell($col.'1')->getValue();
+        if (strcasecmp($cellValue, "nom")!=0 && strcasecmp($cellValue, "prénom")!=0)
+            $activeSheet->removeColumn ($col);
+        else $col++;
     }
-    $colFound = strcasecmp($cellValue, "nom");
-
-    if ($colFound) {
-        while (!strcasecmp($cellValue, "prénom") && $cellValue!=NULL) {
-            $c_prenom++;
-            $cellValue = $activeSheet->getCellByColumnAndRow($c_prenom, $firstRow)->getValue();
-        }
-        $colFound = strcasecmp($cellValue, "nom");
-    }
-
+    
+    $colFound = $col=='C';
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +45,7 @@
             .content {
                 background-color: rgba(255,97,54,.9);
                 padding-top: 5%;
-                padding-bottom: 2%;
+                padding-bottom: 10%;
             }
             
             .btn {
@@ -76,6 +69,16 @@
                 box-shadow: 0 0 2px 2px #ffb760;
             }
             
+            table {
+                background-color: rgba(253,212,198,.3);
+                border: #fdd4c6 solid 1px;
+            }
+            
+            table>tbody>tr:hover {
+                background-color: #fdd4c6;
+                color: #ff6136;
+            }
+            
         </style>
     </head>
     
@@ -86,9 +89,9 @@
             <div class="col-lg-10 col-lg-offset-1 content">
                 <h1>Importation du fichier</h1>
                 
-                <div id="tableau"></div>
+                <form id="tableau" <?php echo $colFound? '':'hidden'; ?>>
                     <h2>Aperçu :</h2>
-
+                    
                     <table class="table">
                         <thead>
                             <tr>
@@ -97,9 +100,23 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            <?php
+                                $rowIterator = $activeSheet->getRowIterator(2);
+                                foreach ($rowIterator as $row) {
+                                    echo '<tr>';
+                                    
+                                    $cellIterator = $row->getCellIterator();   
+                                    foreach ($cellIterator as $cell)
+                                        echo '<td>' . $cell->getValue() . '</td>';
+                                    
+                                    echo '</tr>';
+                                }
+                            ?>
                         </tbody>
                     </table>
+                    
+                    <button type="submit" class="btn btn-success btn-block">Valider</button>
+                </form>
             </div>
         </section>
         
