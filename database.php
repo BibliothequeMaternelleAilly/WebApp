@@ -1,3 +1,13 @@
+<?php
+    $db = new pdo('mysql:host=localhost;dbname=BDDbibliotheque', 'root', 'password');
+
+    if (isset($_GET['reset'])) {
+        $reset = "DELETE FROM eleves";
+        $request = $db->prepare($reset);
+        $request->execute();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -94,9 +104,7 @@
         
         <section class="container">
             <div class="col-lg-10 col-lg-offset-1 content">
-                <h1>
-                    Bases de Données
-                </h1>
+                <h1>Bases de Données</h1>
                 <a href="#" id="lien_aide">Instructions</a>
                 <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" href="#importer">Importer des élèves</a></li>
@@ -107,19 +115,28 @@
                 <div class="tab-content">
                     <div id="importer" class="tab-pane fade">
                         <h2>Ajouter une classe</h2>
-                        <form class="form-inline">
+                        <form class="form-inline" id="importer-form" action="uploadDB.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="fichier">Sélectionnez le fichier à importer</label>
-                                <input type="file" class="form-control" id="fichier" name="fichier" />
+                                <input type="file" class="form-control" id="fichier" name="fichier" accept="application/excel" />
                             </div>
                             <button type="submit" class="btn btn-success" id="import_button">
                                 <span class="glyphicon glyphicon-ok"></span>
                             </button>
                         </form>
                         <hr>
-                        <form>
-                            <button type="submit" class="btn btn-danger btn-block">Réinitialiser la base de donnée</button>
+                        <form id="reset">
+                            <button type="submit" class="btn btn-danger btn-block" name="reset">Réinitialiser la base de donnée</button>
                         </form>
+                        <script>
+                            
+                            $("#reset").submit(function() {
+                                return confirm("Attention! Vous êtes sur le point de supprimer tous les élèves de la base de donnée.\nVoulez-vous continuer ?");
+                            });
+                            
+                            
+                            
+                        </script>
                     </div>
                     <div id="eleves" class="tab-pane fade">
                         <h2>Élèves</h2>
@@ -129,7 +146,7 @@
                                     <tr>
                                         <th>Nom</th>
                                         <th>Prénom</th>
-                                        <th></th>
+                                        <th>Emprunts</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,7 +154,6 @@
                                 </tbody>
                             </table>
                         </form>
-                        <button class="btn btn-success btn-block" name="nouveau">Ajouter un élève</button>
                     </div>
                     <div id="livres" class="tab-pane fade">
                         <h2>Livres</h2>
@@ -151,7 +167,6 @@
                                         <th>ISBN</th>
                                         <th>Mots-clés</th>
                                         <th>Emprunté</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -159,7 +174,6 @@
                                 </tbody>
                             </table>
                         </form>
-                        <button class="btn btn-success btn-block" name="nouveau">Ajouter un livre</button>
                     </div>
                 </div>
             </div>
