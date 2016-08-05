@@ -2,7 +2,7 @@
     $db = new pdo('mysql:host=localhost;dbname=BDDbibliotheque', 'root', 'password');
 
     if (isset($_GET['reset'])) {
-        $reset = "DELETE FROM eleves";
+        $reset = "TRUNCATE eleves";
         $request = $db->prepare($reset);
         $request->execute();
     }
@@ -28,7 +28,7 @@
             .content {
                 background-color: rgba(255,97,54,.9);
                 padding-top: 5%;
-                padding-bottom: 2%;
+                padding-bottom: 7%;
             }
             
             #import_button {
@@ -60,13 +60,22 @@
                 background-color: rgba(253,212,198,.5);
             }
             
+            #lien_aide[aria-expanded=true] {
+                color: #fdd4c6;
+                text-decoration: underline;
+                background-color: rgba(255,78,0,.5);
+            }
+            
+            #instructions {
+                margin-bottom: 7%;
+                padding-left: 3%;
+                padding-right: 3%;
+                border: #fdd4c6 solid 1px;
+            }
+            
             .btn {
                 font-size: 20pt;
                 padding-top: 15px;
-            }
-            
-            .btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus {
-                outline: none;
             }
 
             .nav-tabs > li > a {
@@ -96,6 +105,10 @@
                 box-shadow: 0 0 2px 2px #ffb760;
             }
             
+            .alert {
+                text-align: center;
+            }
+            
         </style>
     </head>
     
@@ -105,15 +118,28 @@
         <section class="container">
             <div class="col-lg-10 col-lg-offset-1 content">
                 <h1>Bases de Données</h1>
-                <a href="#" id="lien_aide">Instructions</a>
+                <div class="alert alert-danger fade in" <?php echo isset($_GET['error'])? '':'hidden'; ?>>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Impossible de transférer le fichier! Veuillez réessayer.
+                </div>
+                <a href="#" data-toggle="collapse" data-target="#instructions" id="lien_aide">Instructions</a>
+                <div id="instructions" class="collapse">
+                    <h2>Sur cette page</h2>
+                    <p>
+                        vous pourrez consulter la base de données, donc la liste complète des élèves et des livres,
+                        et également mettre à jour la liste des élèves. Vous pouvez télécharger au format pdf la liste des élèves en cours
+                        dans l'onglet "Liste des élèves" en cliquant sur le bouton "Sauvegarder".
+                    </p>
+                </div>
+                
                 <ul class="nav nav-tabs">
-                    <li><a data-toggle="tab" href="#importer">Importer des élèves</a></li>
+                    <li class="active"><a data-toggle="tab" href="#importer">Importer des élèves</a></li>
                     <li><a data-toggle="tab" href="#eleves">Liste des élèves</a></li>
                     <li><a data-toggle="tab" href="#livres">Liste des livres</a></li>
                 </ul>
                 
                 <div class="tab-content">
-                    <div id="importer" class="tab-pane fade">
+                    <div id="importer" class="tab-pane fade in active">
                         <h2>Ajouter une classe</h2>
                         <form class="form-inline" id="importer-form" action="uploadDB.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
@@ -126,16 +152,12 @@
                         </form>
                         <hr>
                         <form id="reset">
-                            <button type="submit" class="btn btn-danger btn-block" name="reset">Réinitialiser la base de donnée</button>
+                            <button type="submit" class="btn btn-danger btn-block" name="reset">Réinitialiser la base de données</button>
                         </form>
                         <script>
-                            
                             $("#reset").submit(function() {
                                 return confirm("Attention! Vous êtes sur le point de supprimer tous les élèves de la base de donnée.\nVoulez-vous continuer ?");
                             });
-                            
-                            
-                            
                         </script>
                     </div>
                     <div id="eleves" class="tab-pane fade">

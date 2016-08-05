@@ -1,15 +1,22 @@
 <?php
-//    if ($_SERVER['REQUEST_METHOD']!='POST') header("location:/WebApp/index.php");
-//
-//    $target = "uploads/" .  basename($_FILES["fichier"]["name"]);
-//    
-//    if (!move_uploaded_file($_FILES["fichier"]["tmp_name"], $target)) {
-//        header("location:/WebApp/index.php?error=");
-//    }
+    if ($_SERVER['REQUEST_METHOD']!='POST') header("location:/WebApp/index.php");
+
+    if (isset($_FILES["fichier"])) {
+        $target = "uploads/" .  basename($_FILES["fichier"]["name"]);
+    
+        if (!move_uploaded_file($_FILES["fichier"]["tmp_name"], $target)) {
+            header("location:/WebApp/database.php?error=");
+        }
+    } else if (isset ($_POST['insert']))
+        $target = $_POST['insert'];
+    
+    else header("location:/WebApp/database.php?error=");
 
     require_once 'Classes/PHPExcel/IOFactory.php';
+    
+    $db = new pdo('mysql:host=localhost;dbname=BDDbibliotheque', 'root', 'password', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',));
 
-    $xlsFile = PHPExcel_IOFactory::load("uploads/test.xlsx");
+    $xlsFile = PHPExcel_IOFactory::load($target);
     $activeSheet = $xlsFile->getSheet(0);   
     
     $lastCol = $activeSheet->getHighestDataColumn();
@@ -23,7 +30,6 @@
     }
     
     $colFound = $col=='C';
-    
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,6 +75,26 @@
                 box-shadow: 0 0 2px 2px #ffb760;
             }
             
+            .valid {
+                background-color: #86b300;
+                border: #e4ff99 solid 1px;
+            }
+            
+            .valid:hover {
+                background-color: #608000;
+                color: white;
+            }
+            
+            .error {
+                background-color: #b30000;
+                border: #ff9999 solid 1px;
+            }
+            
+            .error:hover {
+                background-color: #800000;
+                color: white;
+            }
+            
             table {
                 background-color: rgba(253,212,198,.3);
                 border: #fdd4c6 solid 1px;
@@ -77,6 +103,11 @@
             table>tbody>tr:hover {
                 background-color: #fdd4c6;
                 color: #ff6136;
+            }
+            
+            #alert-p {
+                font-size: 15pt;
+                margin-top: 10px;
             }
             
         </style>
@@ -89,7 +120,14 @@
             <div class="col-lg-10 col-lg-offset-1 content">
                 <h1>Importation du fichier</h1>
                 
-                <form id="tableau" <?php echo $colFound? '':'hidden'; ?>>
+                <div <?php echo $colFound? 'hidden':''; ?>>
+                    <div class="alert alert-danger">
+                        <strong>Erreur !</strong> Il semblerait que la lecture du fichier ai échouée.
+                        <p id="alert-p">Vérifiez que les colonnes "Nom" et "Prénom" sont bien présentes et que le tableau commence à la ligne 1.</p>
+                    </div>
+                </div>
+                
+                <form id="tableau" <?php echo $colFound? '':'hidden'; ?> method="POST">
                     <h2>Aperçu :</h2>
                     
                     <table class="table">
@@ -103,20 +141,56 @@
                             <?php
                                 $rowIterator = $activeSheet->getRowIterator(2);
                                 foreach ($rowIterator as $row) {
-                                    echo '<tr>';
+                                    $name = $surname = "";
                                     
-                                    $cellIterator = $row->getCellIterator();   
-                                    foreach ($cellIterator as $cell)
-                                        echo '<td>' . $cell->getValue() . '</td>';
+                                    $cellIterator = $row->getCellIterator();
+                                    foreach ($cellIterator as $cell) {
+                                        if ($name=="") $name = strtoupper($cell->getValue());
+                                        else $surname = strtolower ($cell->getValue());
+                                    }
                                     
+                                    if (isset($_POST['insert'])) {
+                                        $nbErrors = 0;
+                                        $insert = "INSERT INTO eleves (nom, prenom) "
+                                                . "VALUES ('$name', '$surname')";
+                                        $request = $db->prepare($insert);
+                                        $result = $request->execute();
+                                        if ($result) echo '<tr class="valid">';
+                                        else {
+                                            echo '<tr class="error">';
+                                            $nbErrors++;
+                                        }
+                                    } else
+                                        echo '<tr>';
+                                    
+                                    echo "<td>$name</td>";
+                                    echo "<td>$surname</td>";
                                     echo '</tr>';
                                 }
+                                
+                                if (isset($_POST['insert']))
+                                    unlink($target);
                             ?>
                         </tbody>
                     </table>
+                    <script>
+                        $(document).ready(function() {
+                            <?php
+                                if ($nbErrors==0)
+                                    echo 'alert("Toutes les données on été enregistrée!");';
+                                else 
+                                    echo 'alert("Attention! Certaines données (surlignées en rouge dans le tableau) n\'ont pas pu être enregistrée.");';
+                            ?>
+                        });
+                    </script>
                     
-                    <button type="submit" class="btn btn-success btn-block">Valider</button>
+                    <p <?php echo ($colFound && !isset($_POST['insert']))? '':'hidden'; ?>>
+                        <button type="submit" class="btn btn-success btn-block" name="insert" value="<?php echo $target; ?>">Valider</button>
+                    </p>
                 </form>
+                <p <?php echo (!$colFound || isset($_POST['insert']))? '':'hidden'; ?>>
+                    <a href="database.php" class="btn btn-default btn-block">Retourner à l'importation</a>
+                </p>
             </div>
         </section>
         
