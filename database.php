@@ -39,38 +39,57 @@
                 padding-right: 10pt;
             }
             
+            #d_aide {
+                margin-bottom: 30px;
+            }
+            
             #lien_aide {
                 display: block;
-                text-decoration: none;
+                border: white solid 1px;
+                border-radius: 5px;
                 text-align: center;
+                text-decoration: none;
                 color: #fdd4c6;
-                margin-bottom: 20px;
-                padding-top: 15px;
-                padding-bottom: 10px;
+                padding: 7px;
             }
             
             #lien_aide:hover {
+                border: none;
+                border-radius: 0px;
                 background-color: rgba(253,212,198,.7);
                 color: #ff4e00;
+                padding: 8px;
             }
             
-            #lien_aide:active, #lien_aide:focus {
+            #lien_aide:active {
+                border: none;
+                border-radius: 0px;
                 color: #ff4e00;
                 text-decoration: underline;
                 background-color: rgba(253,212,198,.5);
+                padding: 8px;
             }
             
             #lien_aide[aria-expanded=true] {
+                border: none;
+                border-radius: 0px;
                 color: #fdd4c6;
                 text-decoration: underline;
                 background-color: rgba(255,78,0,.5);
+                padding: 8px;
             }
             
             #instructions {
-                margin-bottom: 7%;
+                background-color: rgba(253,212,198,.2);
+                margin-top: 2%;
                 padding-left: 3%;
                 padding-right: 3%;
+                padding-top: 1%;
                 border: #fdd4c6 solid 1px;
+            }
+            
+            #instructions ul {
+                line-height: 1.5;
             }
             
             .btn {
@@ -122,16 +141,40 @@
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     Impossible de transférer le fichier! Veuillez réessayer.
                 </div>
-                <a href="#" data-toggle="collapse" data-target="#instructions" id="lien_aide">Instructions</a>
-                <div id="instructions" class="collapse">
-                    <h2>Sur cette page</h2>
-                    <p>
-                        vous pourrez consulter la base de données, donc la liste complète des élèves et des livres,
-                        et également mettre à jour la liste des élèves. Vous pouvez télécharger au format pdf la liste des élèves en cours
-                        dans l'onglet "Liste des élèves" en cliquant sur le bouton "Sauvegarder".
-                    </p>
+                <div id="d_aide">
+                    <a data-toggle="collapse" data-target="#instructions" id="lien_aide">Instructions</a>
+                    <div id="instructions" class="collapse">
+                        <p><span class="lettrine">D</span>ans l'onglet "Importer des élèves" :</p>
+                        <ul>
+                            <li>
+                                Vous pouvez ajouter une liste d'élèves à la liste existante en sélectionnant
+                                un tableur excel sur votre ordinateur.
+                            </li>
+                            <li>
+                                Supprimer totalement la liste des élèves existante en cliquant sur le bouton 
+                                "Réinitialiser la liste des élèves". <strong>Attention, cette action n'est pas
+                                réversible!</strong>
+                            </li>
+                        </ul>
+                        <p><span class="lettrine">D</span>ans l'onglet "Liste des élèves" :</p>
+                        <ul>
+                            <li>
+                                Vous pouvez consulter la liste complète des élèves et voir leurs emprunts en 
+                                cliquant sur le bouton "emprunts"
+                            </li>
+                            <li>
+                                Vous pouvez télécharger format pdf la liste des élèves ayant un emprunt en cours au 
+                                en cliquant sur le bouton "Sauvegarder"
+                            </li>
+                        </ul>
+                        <p><span class="lettrine">D</span>ans l'onglet "Liste des livres" :</p>
+                        <ul>
+                            <li>
+                                Vous pouvez consulter la liste complète des livres et de leur emprunteur
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#importer">Importer des élèves</a></li>
                     <li><a data-toggle="tab" href="#eleves">Liste des élèves</a></li>
@@ -152,7 +195,7 @@
                         </form>
                         <hr>
                         <form id="reset">
-                            <button type="submit" class="btn btn-danger btn-block" name="reset">Réinitialiser la base de données</button>
+                            <button type="submit" class="btn btn-danger btn-block" name="reset">Réinitialiser la liste des élèves</button>
                         </form>
                         <script>
                             $("#reset").submit(function() {

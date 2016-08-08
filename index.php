@@ -14,6 +14,7 @@
                 background-color: rgba(77,23,0,.8);
                 border: #fee2a5 solid 1px;
                 margin-top: 5%;
+                margin-bottom: 1%;
                 text-align: center;
                 font-family: clearLine;
                 font-size: 4em;

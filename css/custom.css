@@ -56,6 +56,11 @@ h2 {
     font-size: 1.5em;
 }
 
+.lettrine {
+    font-family: clearLine;
+    font-size: 30pt;
+}
+
 .btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus {
     outline: none;
 }

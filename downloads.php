@@ -44,7 +44,6 @@
                 color: #793b20;
                 border: #8d4525 solid 1px;
             }
-            
             .btn-default:hover {
                 background-color: #fdd681;
                 color: #3c1d10;
