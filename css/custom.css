@@ -110,3 +110,8 @@ h2 {
 .popover > .arrow, .popover > .arrow::after {
     border-style: none;
 }
+
+.dropdown-menu li.divider {
+    padding: 0 !important;
+    border: none !important;
+}

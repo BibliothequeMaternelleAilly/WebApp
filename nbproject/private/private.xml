@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/shiro/localhost/WebApp/database.php</file>
             <file>file:/home/shiro/localhost/WebApp/index.php</file>
+            <file>file:/home/shiro/localhost/WebApp/getPDF.php</file>
             <file>file:/home/shiro/localhost/WebApp/css/custom.css</file>
         </group>
     </open-files>
