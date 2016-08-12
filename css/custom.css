@@ -86,11 +86,11 @@ h2 {
     color: #ff4e00;
 }
 
-#navbar>li:hover {
+.navbar li:hover {
     background-color: #ff4e00;
 }
 
-#navbar>li:active {
+.navbar li:active {
     background-color: #cc3d00;
 }
 

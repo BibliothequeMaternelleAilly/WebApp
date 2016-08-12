@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <link rel="icon" type="image/png" href="css/favicon.png">
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/clipboard.min.js"></script>
@@ -132,7 +133,7 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="form-inline form-group">
                         <label for="appWeb">Application Web</label>
-                        <input id="appWeb" type="text" class="form-control" value="https://github.com/BibliothequeMaternelleAilly/WebApp.git" readonly />
+                        <input id="appWeb" type="text" class="form-control" value="https://github.com/BibliothequeMaternelleAilly/BiblioPi.git" readonly />
                         <button class="form-control" data-clipboard-target="#appWeb" data-toggle="popover" data-content="copier dans le presse-papier" data-trigger="hover" name="copyBtn"><span class="glyphicon glyphicon-copy"></span></button>
                     </div>
                     <div class="form-inline form-group">
