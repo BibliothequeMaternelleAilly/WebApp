@@ -17,7 +17,7 @@
             <p>
                 Ensuite, rendez vous à la page <a href="downloads.php">Télechargements</a> pour récupérer l'application. 
                 Si Java est installé sur votre ordinateur et que vous avez téléchargé l'application, il vous suffit de 
-                lancer "Bibliotheque-1.0.jar" pour avoir accés à la bibliothèque.<br>
+                lancer "Bibliotheque.jar" pour avoir accés à la bibliothèque.<br>
                 Vous devriez normalement obtenir ceci :
             </p>
             <br>
