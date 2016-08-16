@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/BiblioPi">Bibliothèque</a>
+            <a class="navbar-brand" href="/WebApp">Bibliothèque</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="<?php if($i==1) active; ?>"><a href="downloads.php">Téléchargements</a></li>
