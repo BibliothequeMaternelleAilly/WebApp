@@ -1,17 +1,17 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD']!='POST') header("location:/BiblioPi/index.php");
+    if ($_SERVER['REQUEST_METHOD']!='POST') header("location:/WebApp/index.php");
 
     if (isset($_FILES["fichier"])) {
 	mkdir("uploads");
         $target = "uploads/" .  basename($_FILES["fichier"]["name"]);
     
         if (!move_uploaded_file($_FILES["fichier"]["tmp_name"], $target)) {
-            header("location:/BiblioPi/database.php?error=");
+            header("location:/WebApp/database.php?error=");
         }
     } else if (isset ($_POST['insert']))
         $target = $_POST['insert'];
     
-    else header("location:/BiblioPi/database.php?error=");
+    else header("location:/WebApp/database.php?error=");
 
     require_once 'Classes/PHPExcel/IOFactory.php';
     
