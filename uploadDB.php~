@@ -2,7 +2,6 @@
     if ($_SERVER['REQUEST_METHOD']!='POST') header("location:/WebApp/index.php");
 
     if (isset($_FILES["fichier"])) {
-    	  mkdir("uploads");
         $target = "uploads/" .  basename($_FILES["fichier"]["name"]);
     
         if (!move_uploaded_file($_FILES["fichier"]["tmp_name"], $target)) {
