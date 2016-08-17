@@ -2,6 +2,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Documentation</title>
+        
+        <style>
+            img { width: 100% }
+            
+            #buttons1 {
+                width: 10%;
+                vertical-align: text-top;
+            }
+        </style>
+        
     </head>
 
     <body>
@@ -11,14 +21,15 @@
             <p>
                 Pour commencer vous devez ajouter des élèves dans la base de données. Pour cela, allez sur la page 
                 <a href="database.php">Base  de données</a> et cliquez sur <input type="button" value="Parcourir..."/> 
-                pour sélectionner le tableur excel à importer.
+                pour sélectionner le tableur Excel à importer.
             </p>
             <br>
             <p>
-                Ensuite, rendez vous à la page <a href="downloads.php">Télechargements</a> pour récupérer l'application. 
+                Ensuite, rendez vous à la page <a href="downloads.php">Téléchargements</a> pour récupérer l'application. 
                 Si Java est installé sur votre ordinateur et que vous avez téléchargé l'application, il vous suffit de 
-                lancer "Bibliotheque-1.0.jar" pour avoir accés à la bibliothèque.<br>
-                Vous devriez normalement obtenir ceci :
+                lancer "Bibliotheque-1.0.jar" pour avoir accès à la bibliothèque.<br>
+                Vous devriez normalement obtenir ceci :<br>
+                <img src="css/fullApp.png" alt="Application au démarrage" />
             </p>
             <br>
             L'interface est découpée en 4 onglets principaux :
@@ -37,7 +48,8 @@
                 </li>
             </ul>
             <p>
-                Vous pouvez naviguer entre les onglets en cliquant sur les boutons à gauche de l'écran.
+                Vous pouvez naviguer entre les onglets en cliquant sur les boutons à gauche de l'écran :
+                <img src="css/buttons1.png" alt="Boutons de navigations entre les onglets" id="buttons1" />
             </p>
             <br>
             <p>
@@ -117,6 +129,7 @@
                 </div>
                 <div id="chapitre1-2" class="tab-pane fade">
                     <h2>Enregistrer l'emprunt</h2>
+                    <img src="css/tab1.png" alt="Onglet n°1" style=""/><br><br>
                     <p>
                         Une fois le livre scanné, vous devez sélectionner l'élève qui l'empunte.
                         <br>Pour cela, tapez son nom et son prénom dans les deux champs correspondants ou cliquez sur l'un des élèves dans 
@@ -141,7 +154,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active">
                     <p>Pour rendre un livre vous devez tout d'abord cliquer sur l'onglet Rendre.</p>
-                    <br>
+                    <img src="css/tab2.png" alt="Onglet n°2" style=""/><br><br>
                     <p>
                         Dans cet onget vous n'aurez qu'a scanner le code-barre du livre et de le valider pour le rendre.
                         <br>L'interface de scan est la même que dans le premier onglet, ainsi vous pouvez donc soit utiliser 
@@ -156,6 +169,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active">
                     Pour accéder à la page de gestion des élèves cliquez tout d'abord sur l'onglet Élèves.
+                    <br><img src="css/tab3.png" alt="Onglet n°3" style=""/><br><br>
                 </div>
                 <div id="chapitre3-1" class="tab-pane fade">
                     <h2>Sélectionner un élève</h2>
@@ -234,6 +248,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active">
                     Pour accéder à la page de gestion des livres cliquez tout d'abord sur l'onglet Livres.
+                    <br><img src="css/tab4.png" alt="Onglet n°4" style=""/><br><br>
                 </div>
                 <div id="chapitre4-1" class="tab-pane fade">
                     <h2>Sélectionner un livre</h2>
