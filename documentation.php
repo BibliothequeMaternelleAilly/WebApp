@@ -31,15 +31,17 @@
                 margin-top: 5%;
             }
             
-            li[name="sublist"] li { margin-left: 12%; }
+            .sublist{}
+            
+            li.sublist li { margin-left: 12%; }
             
             #main_list li:hover {
                 background-color: #fd819a;
             }
             
-            #main_list>li[name="sublist"]:hover,
-            #main_list>li[name="sublist"]:active,
-            #main_list>li[name="sublist"]:focus {
+            #main_list>li.sublist:hover,
+            #main_list>li.sublist:active,
+            #main_list>li.sublist:focus {
                 background-color: transparent;
             }
             
@@ -106,7 +108,7 @@
                         <li data-toggle="collapse" data-target="#chap1_content">
                             <a href="#chapitre1" data-toggle="pill">Les emprunts</a>
                         </li>
-                        <li name="sublist">
+                        <li class="sublist">
                             <div id="chap1_content" class="collapse">
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="#chapitre1-1" data-toggle="pill">Scanner</a></li>
@@ -118,7 +120,7 @@
                         <li data-toggle="collapse" data-target="#chap3_content">
                             <a href="#chapitre3" data-toggle="pill">Élèves</a>
                         </li>
-                        <li name="sublist">
+                        <li class="sublist">
                             <div id="chap3_content" class="collapse">
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="#chapitre3-1" data-toggle="pill">Sélection</a></li>
@@ -130,7 +132,7 @@
                         <li data-toggle="collapse" data-target="#chap4_content">
                             <a href="#chapitre4" data-toggle="pill">Livres</a>
                         </li>
-                        <li name="sublist">
+                        <li class="sublist">
                             <div id="chap4_content" class="collapse">
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="#chapitre4-1" data-toggle="pill">Sélection</a></li>
