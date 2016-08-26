@@ -1,12 +1,15 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">Bibliothèque</a>
+            <a class="navbar-brand" href="/WebApp">Bibliothèque</a>
         </div>
-        <ul id="navbar" class="nav navbar-nav">
+        <ul class="nav navbar-nav">
             <li class="<?php if($i==1) active; ?>"><a href="downloads.php">Téléchargements</a></li>
             <li class="<?php if($i==2) active; ?>"><a href="database.php">Bases de données</a></li>
             <li class="<?php if($i==3) active; ?>"><a href="documentation.php">Documentation</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="<?php if($i==4) active; ?>"><a href="contact.php">Contact</a></li>
         </ul>
     </div>
 </nav>

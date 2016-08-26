@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <link rel="icon" type="image/png" href="css/favicon.png">
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/clipboard.min.js"></script>
@@ -35,15 +36,12 @@
                 padding-top: 15px;
             }
             
-            .btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus {
-                outline: none;
-            }
-            
             .btn-default {
                 background-color: #fee2a5;
                 color: #793b20;
                 border: #8d4525 solid 1px;
             }
+            
             .btn-default:hover {
                 background-color: #fdd681;
                 color: #3c1d10;
@@ -123,8 +121,8 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     Téléchargez ici le logiciel de gestion de la bibliothèque
                     <div style="text-align: center; margin-top: 10px">
-                        <a class="btn btn-success btn-lg" href="Bibliotheque.jar">Bibliothèque.jar</a>
-                        <a class="btn btn-default btn-lg" href="#">Instructions d'utilisation</a>
+                        <a class="btn btn-success btn-lg" href="JavaApp/Bibliotheque-1.0.jar">Application java</a>
+                        <a class="btn btn-default btn-lg" href="documentation.php">Instructions d'utilisation</a>
                     </div>
                 </div>
             </div>
